@@ -1,0 +1,65 @@
+---
+#api service
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-middleware-service
+spec:
+  selector:
+    app: keycloak-middleware-service
+  ports:
+  - protocol: 'TCP'
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
+---
+#api deploy
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-middleware-deployment
+  labels:
+    app: keycloak-middleware-deployment
+spec:
+  selector:
+    matchLabels:
+        app: keycloak-middleware
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: keycloak-middleware
+    spec:
+      containers:
+        - name: keycloak-middleware
+          image: jvitoralmeida/keycloak-middleware:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+          env: 
+          - name: KEYCLOAK_URL
+            valueFrom:
+              secretKeyRef:
+                name: keycloak-secrets-2b848845t2
+                key: keycloakurl
+
+          - name: CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: keycloak-secrets-2b848845t2
+                key: clientid
+
+          - name: ADM_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: keycloak-secrets-2b848845t2
+                key: username
+
+          - name: ADM_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: keycloak-secrets-2b848845t2
+                key: password
