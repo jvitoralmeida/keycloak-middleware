@@ -43,23 +43,23 @@ spec:
           - name: KEYCLOAK_URL
             valueFrom:
               secretKeyRef:
-                name: keycloak-secrets-2b848845t2
+                name: keycloak-secrets-t624628kdf
                 key: keycloakurl
 
           - name: CLIENT_ID
             valueFrom:
               secretKeyRef:
-                name: keycloak-secrets-2b848845t2
+                name: keycloak-secrets-t624628kdf
                 key: clientid
 
           - name: ADM_USERNAME
             valueFrom:
               secretKeyRef:
-                name: keycloak-secrets-2b848845t2
+                name: keycloak-secrets-t624628kdf
                 key: username
 
           - name: ADM_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: keycloak-secrets-2b848845t2
+                name: keycloak-secrets-t624628kdf
                 key: password
