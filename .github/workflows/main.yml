@@ -30,8 +30,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build Quakus Native with Maven
-        run: mvn package -Pnative     
+      - name: Build Spring Project
+        run: mvn clean install
       
       - uses: mr-smithers-excellent/docker-build-push@v3
         name: Build & push Docker image
