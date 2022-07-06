@@ -39,27 +39,27 @@ spec:
             - containerPort: 8080
               protocol: TCP
           imagePullPolicy: Always
-          env: 
-          - name: KEYCLOAK_URL
-            valueFrom:
-              secretKeyRef:
-                name: keycloak-secrets
-                key: keycloakurl
+          env:
+            - name: KEYCLOAK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: keycloakurl
 
-          - name: CLIENT_ID
-            valueFrom:
-              secretKeyRef:
-                name: keycloak-secrets
-                key: clientid
+            - name: CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: clientid
 
-          - name: ADM_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: keycloak-secrets
-                key: username
+            - name: ADM_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: username
 
-          - name: ADM_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: keycloak-secrets
-                key: password
+            - name: ADM_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-secrets
+                  key: password
