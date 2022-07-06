@@ -20,6 +20,7 @@ public class UserService {
     KeyCloakConfig config;
 
 
+    @Autowired
     AdmKeycloakClient admKeycloakClient;
 
     @Autowired
