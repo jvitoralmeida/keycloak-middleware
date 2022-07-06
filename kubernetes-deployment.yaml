@@ -6,7 +6,7 @@ metadata:
   name: keycloak-middleware-service
 spec:
   selector:
-    app: keycloak-middleware-service
+    app: keycloak-middleware
   ports:
   - protocol: 'TCP'
     port: 80
@@ -17,9 +17,9 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: keycloak-middleware-deployment
+  name: keycloak-middleware
   labels:
-    app: keycloak-middleware-deployment
+    app: keycloak-middleware
 spec:
   selector:
     matchLabels:
@@ -43,23 +43,23 @@ spec:
             - name: KEYCLOAK_URL
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-secrets
+                  name: keycloak-secrets-t624628kdf
                   key: keycloakurl
 
             - name: CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-secrets
+                  name: keycloak-secrets-t624628kdf
                   key: clientid
 
             - name: ADM_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-secrets
+                  name: keycloak-secrets-t624628kdf
                   key: username
 
             - name: ADM_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-secrets
+                  name: keycloak-secrets-t624628kdf
                   key: password
