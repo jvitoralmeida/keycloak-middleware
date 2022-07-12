@@ -72,7 +72,7 @@ public class UserService {
     }
 
     private void addUserOnGroup(String accessToken, String location){
-        List<RoleRepresentation> roles = List.of(new RoleRepresentation("9097b819-850c-4b37-bad3-5a8a6ddcf4aa", "user"));
+        List<RoleRepresentation> roles = List.of(new RoleRepresentation("8b654338-ab8a-4e72-b608-30a7901a174c", "user"));
 
         // create headers
         HttpHeaders headers = new HttpHeaders();
