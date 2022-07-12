@@ -51,8 +51,8 @@ jobs:
       - id: 'get-credentials'
         uses: 'google-github-actions/get-gke-credentials@v0'
         with:
-          cluster_name: 'fiap-cluster-kubernetes'
-          location: 'us-east1-b'
+          cluster_name: 'fiap'
+          location: 'us-west2-a'
       
       - name: 'kubectl apply'
         run: 'kubectl apply -f kubernetes-deployment.yaml'
